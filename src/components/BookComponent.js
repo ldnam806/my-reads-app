@@ -23,6 +23,14 @@ export function BookComponent({ book, handler }) {
           </OpenChooseTypes>
           <Types>
             <div
+              onClick={() => handleUpdate("none")}
+              className={
+                book.shelf === "none" ? "type-item active" : "type-item"
+              }
+            >
+              None
+            </div>
+            <div
               onClick={() => handleUpdate("wantToRead")}
               className={
                 book.shelf === "wantToRead" ? "type-item active" : "type-item"
@@ -54,8 +62,8 @@ export function BookComponent({ book, handler }) {
       <div className="book-info">
         <BookTitle>{book.title}</BookTitle>
         <BookAuthor>
-          {book.authors?.map((author) => (
-            <span>{author}</span>
+          {book.authors?.map((author, idnex) => (
+            <span key={idnex}>{author}</span>
           ))}
         </BookAuthor>
       </div>

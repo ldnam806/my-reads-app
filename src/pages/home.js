@@ -48,7 +48,9 @@ export default function Home() {
           {books
             ?.filter((book) => book.shelf === BOOKS_CATEGORIES.WANT_TO_READ)
             .map((book) => (
-              <BookComponent handler={handleUpdate} key={book.id} book={book} />
+              <React.Fragment key={book.id}>
+                <BookComponent handler={handleUpdate} book={book} />
+              </React.Fragment>
             ))}
         </div>
       </BookCategoryWrapper>
